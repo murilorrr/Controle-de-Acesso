@@ -26,7 +26,7 @@ public class Principal {
 
   public  static void fluxo() {
     System.out.println("Entre com o número correspondente à opção desejada:");
-    System.out.println("1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório\n");
+    System.out.println("1-Acessar o estabelecimento\n2-Finalizar sistema e mostrar relatório\n");
     Scanner inputScanner = new Scanner(System.in);
     int inputNumber = inputScanner.nextInt();
 
@@ -59,7 +59,7 @@ public class Principal {
     report.numberOfPeople();
   }
 
-  public static void end(){
+  public static void end() {
     System.out.println("Fim do sistema");
   }
 

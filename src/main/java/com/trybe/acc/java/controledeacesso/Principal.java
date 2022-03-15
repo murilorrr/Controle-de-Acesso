@@ -37,7 +37,7 @@ public class Principal {
 
       // eu quero contar mais um? então chamo o metodo nomente
       fluxo();
-    } else if (inputNumber != logoutOption){
+    } else if (inputNumber != logoutOption) {
       System.out.println("Entre com uma opção válida");
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das pessoas
     } else {

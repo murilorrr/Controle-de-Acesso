@@ -1,6 +1,7 @@
 package com.trybe.acc.java.controledeacesso;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -19,7 +20,7 @@ class PrincipalTest {
 
   @Test
   @DisplayName("1 - Menu aceita entradas e mostra relatório")
-  public void testePrincipal() {
+  public void testePrincipal() throws Exception {
     String entrada = "";
 
     for (int i = 0; i < 200; i++) {
@@ -43,10 +44,10 @@ class PrincipalTest {
     assertTrue(saida.contains("77.5"));
 
   }
-	
+
   @Test
   @DisplayName("2 - Menu rejeita opção inválida")
-  public void testeOpcaoInvalida() {
+  public void testeOpcaoInvalida() throws Exception {
     String entrada = "3" + System.lineSeparator(); 
     entrada += "2" + System.lineSeparator();
     

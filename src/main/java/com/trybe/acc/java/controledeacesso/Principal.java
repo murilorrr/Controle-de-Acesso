@@ -1,12 +1,64 @@
 package com.trybe.acc.java.controledeacesso;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Principal {
 
-  /**
-   * Método principal.
-   */
-  public static void main(String[] args) {
+  static ArrayList<Short> people = new ArrayList<Short>();
+  short acess;
+  short logoutOption = 2;
+  static int loginOption = 1;
+
+  public static void main(String[] args) throws Exception {
     // ESCREVA SEU CÓDIGO AQUI
-    System.out.println("Initial commit");
+    // inicio da contagem
+    init();
+
+    fluxo();
+
+    end();
   }
+
+  public static void init() {
+    System.out.println("Inicia o sistema");
+  }
+
+  public  static void fluxo() {
+    System.out.println("Entre com o número correspondente à opção desejada:");
+    System.out.println("1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório\n");
+    Scanner inputScanner = new Scanner(System.in);
+    int inputNumber = inputScanner.nextInt();
+
+    // inputScanner.close();
+    if (inputNumber == loginOption) {
+      // adiciono a primeira pessoa ao relatorio
+      storeUserAge();
+
+      // eu quero contar mais um? então chamo o metodo nomente
+      fluxo();
+    } else {
+      // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das pessoas
+      relatorio();
+    }
+    // inputScanner.close();
+  }
+
+  public static void storeUserAge() {
+    System.out.println("Entre com a idade:\n");
+    Scanner inputScanner = new Scanner(System.in);
+    Short age = inputScanner.nextShort();
+    people.add(age);
+    // inputScanner.close();
+  }
+
+  public static void relatorio() {
+    Report report = new Report(people);
+    report.numberOfPeople();
+  }
+
+  public static void end(){
+    System.out.println("Fim do systema");
+  }
+
 }

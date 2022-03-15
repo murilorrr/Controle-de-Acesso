@@ -7,7 +7,7 @@ public class Principal {
 
   static ArrayList<Short> people = new ArrayList<Short>();
   short acess;
-  short logoutOption = 2;
+  static short logoutOption = 2;
   static int loginOption = 1;
 
   public static void main(String[] args) throws Exception {
@@ -37,8 +37,10 @@ public class Principal {
 
       // eu quero contar mais um? então chamo o metodo nomente
       fluxo();
-    } else {
+    } else if (inputNumber != logoutOption){
+      System.out.println("Entre com uma opção válida");
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das pessoas
+    } else {
       relatorio();
     }
     // inputScanner.close();
@@ -58,7 +60,7 @@ public class Principal {
   }
 
   public static void end(){
-    System.out.println("Fim do systema");
+    System.out.println("Fim do sistema");
   }
 
 }

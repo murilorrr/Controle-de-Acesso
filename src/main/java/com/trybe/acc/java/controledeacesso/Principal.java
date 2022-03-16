@@ -13,6 +13,8 @@ public class Principal {
   /**
    * warn
    * método main vai chamar a execução da aplicação do sistema
+   * @author Murilo
+   * @version 1.0
    */
   public static void main(String[] args) throws Exception {
     // ESCREVA SEU CÓDIGO AQUI
@@ -32,6 +34,8 @@ public class Principal {
    * warn
    * método fluxo vai vai acessar o sistem para cadastro de pessoas pela idade e
    * caso desejado realizar o relatório
+   * @author Murilo
+   * @version 1.0
    */
   public static void fluxo() {
     System.out.println("Entre com o número correspondente à opção desejada:");
@@ -57,8 +61,9 @@ public class Principal {
   }
 
   /**
-   * warn
    * método storeUserAge vai esperar a idade e guardar no arrayList de people
+   * @author Murilo
+   * @version 1.0
    */
   public static void storeUserAge() {
     System.out.println("Entre com a idade:\n");
@@ -68,6 +73,12 @@ public class Principal {
     // inputScanner.close();
   }
 
+  /**
+   * método relatorio instancia uma classe de Report que contem
+   * metodos para analizar um array de idades
+   * @author Murilo
+   * @version 1.0
+   */
   public static void relatorio() {
     Report report = new Report(people);
     report.numberOfPeople();

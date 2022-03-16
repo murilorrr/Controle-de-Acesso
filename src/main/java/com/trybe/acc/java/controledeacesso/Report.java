@@ -13,6 +13,8 @@ public class Report {
   /**
    * constructor
    * ao ser instanciado ira receber um array de idades
+   * @author Murilo
+   * @version 1.0
    */
   Report(ArrayList<Short> people) {
     this.ages = people;
@@ -29,6 +31,8 @@ public class Report {
    * quantityByAges
    * método ira distribuir de forma assertiva qual a quantidade de
    * menores, adultos e idosos que existem no array
+   * @author Murilo
+   * @version 1.0
    */
   public void quantityByAges() {
     // int[] agesArray = new Array[ages.size()];
@@ -53,8 +57,8 @@ public class Report {
     double percentAged = aged / ages.size();
 
     String retornoEsperado =
-    " ----- Percentual -----\n menores: %s  \n adultas: %s\n maiores que 50: %s\n";
+        " ----- Percentual -----\n menores: %s  \n adultas: %s\n maiores que 50: %s\n";
 
-    System.out.format(retornoEsperado, percentMinor ,percentAdult, percentAged);
+    System.out.format(retornoEsperado, percentMinor, percentAdult, percentAged);
   }
 }

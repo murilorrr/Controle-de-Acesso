@@ -12,7 +12,7 @@ public class Principal {
 
   /**
    * warn
-   * método main vai chamar a execução da aplicação do sistema
+   * método main vai chamar a execução da aplicação do sistema.
    * @author Murilo
    * @version 1.0
    */
@@ -33,7 +33,7 @@ public class Principal {
   /**
    * warn
    * método fluxo vai vai acessar o sistem para cadastro de pessoas pela idade e
-   * caso desejado realizar o relatório
+   * caso desejado realizar o relatório.
    * @author Murilo
    * @version 1.0
    */
@@ -61,7 +61,7 @@ public class Principal {
   }
 
   /**
-   * método storeUserAge vai esperar a idade e guardar no arrayList de people
+   * método storeUserAge vai esperar a idade e guardar no arrayList de people.
    * @author Murilo
    * @version 1.0
    */
@@ -75,7 +75,7 @@ public class Principal {
 
   /**
    * método relatorio instancia uma classe de Report que contem
-   * metodos para analizar um array de idades
+   * metodos para analizar um array de idades.
    * @author Murilo
    * @version 1.0
    */

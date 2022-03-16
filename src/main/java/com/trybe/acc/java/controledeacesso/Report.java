@@ -12,7 +12,7 @@ public class Report {
 
   /**
    * constructor
-   * ao ser instanciado ira receber um array de idades
+   * ao ser instanciado ira receber um array de idades.
    * @author Murilo
    * @version 1.0
    */
@@ -30,7 +30,7 @@ public class Report {
   /**
    * quantityByAges
    * método ira distribuir de forma assertiva qual a quantidade de
-   * menores, adultos e idosos que existem no array
+   * menores, adultos e idosos que existem no array.
    * @author Murilo
    * @version 1.0
    */

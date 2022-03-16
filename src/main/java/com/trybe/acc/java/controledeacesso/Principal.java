@@ -15,18 +15,16 @@ public class Principal {
    * @author Murilo
    * @version 1.0
    */
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
     // ESCREVA SEU CÓDIGO AQUI
     // inicio da contagem
-    init();
 
-    fluxo();
+    flow();
 
-    end();
   }
 
   public static void init() {
-    System.out.println("Inicia o sistema");
+    // System.out.println("Inicia o sistema");
   }
 
   /**
@@ -36,27 +34,27 @@ public class Principal {
    * @author Murilo
    * @version 1.0
    */
-  public static void fluxo() {
+  public static void flow() {
     System.out.println("Entre com o número correspondente à opção desejada:");
-    System.out.println("1-Acessar o estabelecimento\n2-Finalizar sistema e mostrar relatório\n");
+    String entrySystemString = "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
+    System.out.println(entrySystemString);
     Scanner inputScanner = new Scanner(System.in);
     int inputNumber = inputScanner.nextInt();
 
     // inputScanner.close();
     if (inputNumber == loginOption) {
       // adiciono a primeira pessoa ao relatorio
-      storeUserAge();
+      // storeUserAge();
 
       // eu quero contar mais um? então chamo o metodo nomente
-      fluxo();
+      flow();
     } else if (inputNumber != logoutOption) {
-      System.out.println("Entre com uma opção válida");
-      fluxo();
+      System.out.println("Entre com uma opção válida!");
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das
       // pessoas
     } else {
       int quantityOfPeople = people.size();
-      if(quantityOfPeople == 0) fluxo();
+      if(quantityOfPeople == 0) flow();
       relatorio();
     }
     // inputScanner.close();
@@ -68,9 +66,10 @@ public class Principal {
    * @version 1.0
    */
   public static void storeUserAge() {
-    System.out.println("Entre com a idade:\n");
+    System.out.println("Entre com a sua idade:");
     Scanner inputScanner = new Scanner(System.in);
     Short age = inputScanner.nextShort();
+    System.out.println("Pessoa adulta, catraca liberada!");
     people.add(age);
     // inputScanner.close();
   }
@@ -83,13 +82,13 @@ public class Principal {
    */
   public static void relatorio() {
     Report report = new Report(people);
-    report.numberOfPeople();
     report.reportQuantityByAges();
     report.reportPercentageByAges();
+    report.numberOfPeople();
   }
 
   public static void end() {
-    System.out.println("Fim do sistema");
+    // System.out.println("Fim do sistema");
   }
 
 }

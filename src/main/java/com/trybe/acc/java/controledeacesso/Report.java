@@ -21,6 +21,12 @@ public class Report {
     quantityByAges();
   }
 
+  /**
+   * numberOfPeople
+   * imprime no terminal o numero de pessoas no array recebido.
+   * @author Murilo
+   * @version 1.0
+   */
   public void numberOfPeople() {
     int total = ages.size();
     String retornoEsperado = "Número total de pessoas que visitaram o estabelecimento: %s \n";
@@ -51,6 +57,12 @@ public class Report {
     // }
   }
 
+  /**
+   * reportPercentageByAges
+   * ao ser chamado ira imprimir no terminal a quatidade em porcentagem das idades.
+   * @author Murilo
+   * @version 1.0
+   */
   public void reportPercentageByAges() {
     double percentMinor = minor / ages.size();
     double percentAdult = adult / ages.size();

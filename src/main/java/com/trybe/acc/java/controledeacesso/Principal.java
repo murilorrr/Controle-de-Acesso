@@ -1,7 +1,6 @@
 package com.trybe.acc.java.controledeacesso;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Principal {
 
@@ -52,9 +51,12 @@ public class Principal {
       fluxo();
     } else if (inputNumber != logoutOption) {
       System.out.println("Entre com uma opção válida");
+      fluxo();
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das
       // pessoas
     } else {
+      int quantityOfPeople = people.size();
+      if(quantityOfPeople == 0) fluxo();
       relatorio();
     }
     // inputScanner.close();
@@ -82,6 +84,7 @@ public class Principal {
   public static void relatorio() {
     Report report = new Report(people);
     report.numberOfPeople();
+    report.reportQuantityByAges();
     report.reportPercentageByAges();
   }
 

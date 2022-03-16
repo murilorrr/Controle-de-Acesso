@@ -29,7 +29,7 @@ public class Report {
    */
   public void numberOfPeople() {
     int total = ages.size();
-    String retornoEsperado = "TOTAL: %s \n";
+    String retornoEsperado = "\nTOTAL: %s\n";
     System.out.format(retornoEsperado, total);
   }
 
@@ -66,7 +66,7 @@ public class Report {
     double percentAged = ((double) aged/arrayLength) * 100;
 
     String retornoEsperado =
-        " ----- Percentual -----\n menores: %2.1f%%  \n adultas: %2.1f%%\n maiores que 50: %2.1f%%\n";
+        "----- Percentual -----\nmenores: %2.1f%%\nadultas: %2.1f%%\nmaiores que 50: %2.1f%%\n";
 
     System.out.format(retornoEsperado, percentMinor, percentAdult, percentAged);
   }
@@ -79,7 +79,7 @@ public class Report {
    */
   public void reportQuantityByAges() {
     String retornoEsperado =
-        " ----- Quantidade -----\n menores: %s  \n adultas: %s\n maiores que 50: %s\n\n";
+        "----- Quantidade -----\nmenores: %s\nadultas: %s\nmaiores que 50: %s\n";
 
     System.out.format(retornoEsperado, minor, adult, aged);
   }

@@ -23,10 +23,6 @@ public class Principal {
 
   }
 
-  public static void init() {
-    // System.out.println("Inicia o sistema");
-  }
-
   /**
    * warn
    * método fluxo vai vai acessar o sistem para cadastro de pessoas pela idade e
@@ -44,15 +40,15 @@ public class Principal {
     // inputScanner.close();
     if (inputNumber == loginOption) {
       // adiciono a primeira pessoa ao relatorio
-      // storeUserAge();
+      storeUserAge();
 
       // eu quero contar mais um? então chamo o metodo nomente
       flow();
     } else if (inputNumber != logoutOption) {
       System.out.println("Entre com uma opção válida!");
+    } else {
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das
       // pessoas
-    } else {
       int quantityOfPeople = people.size();
       if(quantityOfPeople == 0) flow();
       relatorio();
@@ -86,9 +82,4 @@ public class Principal {
     report.reportPercentageByAges();
     report.numberOfPeople();
   }
-
-  public static void end() {
-    // System.out.println("Fim do sistema");
-  }
-
 }

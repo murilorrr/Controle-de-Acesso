@@ -1,5 +1,6 @@
 package com.trybe.acc.java.controledeacesso;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Report {
@@ -65,10 +66,16 @@ public class Report {
     double percentAdult = ((double) adult/arrayLength) * 100;
     double percentAged = ((double) aged/arrayLength) * 100;
 
-    String retornoEsperado =
-        "----- Percentual -----\nmenores: %2.1f%%\nadultas: %2.1f%%\nmaiores que 50: %2.1f%%\n";
+    String pattern = "##.##";
+    DecimalFormat decimalFormat = new DecimalFormat(pattern);
+    String percentMinorFormat = decimalFormat.format(percentMinor);
+    String percentAdultFormat = decimalFormat.format(percentAdult);
+    String percentAgedFormat = decimalFormat.format(percentAged);
 
-    System.out.format(retornoEsperado, percentMinor, percentAdult, percentAged);
+    String retornoEsperado =
+        "----- Percentual -----\nmenores: %s%%\nadultas: %s%%\nmaiores que 50: %s%%\n";
+
+    System.out.format(retornoEsperado, percentMinorFormat, percentAdultFormat, percentAgedFormat);
   }
 
   /**

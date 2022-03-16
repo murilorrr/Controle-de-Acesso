@@ -1,7 +1,6 @@
 package com.trybe.acc.java.controledeacesso;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Report {
 
@@ -26,20 +25,26 @@ public class Report {
     System.out.format(retornoEsperado, total);
   }
 
+  /**
+   * quantityByAges
+   * método ira distribuir de forma assertiva qual a quantidade de
+   * menores, adultos e idosos que existem no array
+   */
   public void quantityByAges() {
-    int[] agesArray = new Array[10];
+    // int[] agesArray = new Array[ages.size()];
+    // agesArray = ages;
 
 
-    int arrayLength = ages.size();
-    for (int i = 0; i < arrayLength; i++) {
-      if (ages[i] < 18) {
-        minor = minor + 1;
-      } else if (arrayDeIdades[i] >= 18 && arrayDeIdades[i] < 50 ) {
-        adult = adult + 1;
-      } else {
-        aged = aged + 1;
-      }
-    }
+    // int arrayLength = ages.size();
+    // for (int i = 0; i < arrayLength; i++) {
+    //   if (ages[i] < 18) {
+    //     minor = minor + 1;
+    //   } else if (arrayDeIdades[i] >= 18 && arrayDeIdades[i] < 50 ) {
+    //     adult = adult + 1;
+    //   } else {
+    //     aged = aged + 1;
+    //   }
+    // }
   }
 
   public void reportPercentageByAges() {

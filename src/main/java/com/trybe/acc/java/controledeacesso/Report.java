@@ -2,7 +2,8 @@ package com.trybe.acc.java.controledeacesso;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class Report {
 
@@ -46,7 +47,7 @@ public class Report {
     ages.forEach((age) -> {
       if (age < 18) {
         minor = minor + 1;
-      } else if (age >= 18 && age < 50 ) {
+      } else if (age >= 18 && age < 50) {
         adult = adult + 1;
       } else {
         aged = aged + 1;
@@ -63,12 +64,13 @@ public class Report {
   public void reportPercentageByAges() {
 
     int arrayLength = ages.size();
-    double percentMinor = ((double) minor/arrayLength) * 100;
-    double percentAdult = ((double) adult/arrayLength) * 100;
-    double percentAged = ((double) aged/arrayLength) * 100;
+    double percentMinor = ((double) minor / arrayLength) * 100;
+    double percentAdult = ((double) adult / arrayLength) * 100;
+    double percentAged = ((double) aged / arrayLength) * 100;
 
     // DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
-    DecimalFormat decimalFormatUS = new DecimalFormat("#,###.##", new DecimalFormatSymbols(Locale.US));
+    DecimalFormat decimalFormatUS = new DecimalFormat(
+        "#,###.##", new DecimalFormatSymbols(Locale.US));
 
     // String retornoEsperado =
     //     "----- Percentual -----\nmenores: %s%%\nadultas: %s%%\nmaiores que 50: %s%%\n";

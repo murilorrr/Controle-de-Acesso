@@ -34,10 +34,15 @@ public class Principal {
   public static void flow() {
     System.out.println("Entre com o número correspondente à opção desejada:");
     String entrySystemString =
-      "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório"; 
+        "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
     System.out.println(entrySystemString);
     Scanner inputScanner = new Scanner(System.in);
-    int inputNumber = inputScanner.nextInt();
+
+    short inputNumber = 0;
+
+    if (inputScanner.hasNextShort()) {
+      inputNumber = inputScanner.nextShort();
+    }
 
     // inputScanner.close();
     if (inputNumber == loginOption) {
@@ -68,7 +73,11 @@ public class Principal {
   public static void storeUserAge() {
     System.out.println("Entre com a sua idade:");
     Scanner inputScanner = new Scanner(System.in);
-    Short age = inputScanner.nextShort();
+    short age = 0;
+
+    if (inputScanner.hasNextShort()) {
+      age = inputScanner.nextShort();
+    }
     System.out.println("Pessoa adulta, catraca liberada!");
     people.add(age);
     // inputScanner.close();

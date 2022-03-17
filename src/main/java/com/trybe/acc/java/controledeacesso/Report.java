@@ -99,7 +99,7 @@ public class Report {
    */
   public void reportQuantityByAges() {
     String retornoEsperado =
-        "----- Quantidade -----\nmenores: %s\nadultas: %s\nmaiores que 50: %s\n";
+        "----- Quantidade -----\nmenores: %s\nadultas: %s\nmaiores que 50: %s\n\n";
 
     System.out.format(retornoEsperado, minor, adult, aged);
   }

@@ -1,6 +1,7 @@
 package com.trybe.acc.java.controledeacesso;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Principal {
 
@@ -32,7 +33,8 @@ public class Principal {
    */
   public static void flow() {
     System.out.println("Entre com o número correspondente à opção desejada:");
-    String entrySystemString = "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
+    String entrySystemString =
+      "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório"; 
     System.out.println(entrySystemString);
     Scanner inputScanner = new Scanner(System.in);
     int inputNumber = inputScanner.nextInt();
@@ -50,7 +52,9 @@ public class Principal {
       // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das
       // pessoas
       int quantityOfPeople = people.size();
-      if(quantityOfPeople == 0) flow();
+      if (quantityOfPeople == 0) {
+        flow();
+      }
       relatorio();
     }
     // inputScanner.close();

@@ -1,7 +1,8 @@
 package com.trybe.acc.java.controledeacesso;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.text.DecimalFormatSymbols;
+import java.util.*;
 
 public class Report {
 
@@ -66,16 +67,26 @@ public class Report {
     double percentAdult = ((double) adult/arrayLength) * 100;
     double percentAged = ((double) aged/arrayLength) * 100;
 
-    String pattern = "##.##";
-    DecimalFormat decimalFormat = new DecimalFormat(pattern);
-    String percentMinorFormat = decimalFormat.format(percentMinor);
-    String percentAdultFormat = decimalFormat.format(percentAdult);
-    String percentAgedFormat = decimalFormat.format(percentAged);
+    // DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+    DecimalFormat decimalFormatUS = new DecimalFormat("#,###.##", new DecimalFormatSymbols(Locale.US));
 
-    String retornoEsperado =
-        "----- Percentual -----\nmenores: %s%%\nadultas: %s%%\nmaiores que 50: %s%%\n";
+    // String retornoEsperado =
+    //     "----- Percentual -----\nmenores: %s%%\nadultas: %s%%\nmaiores que 50: %s%%\n";
 
-    System.out.format(retornoEsperado, percentMinorFormat, percentAdultFormat, percentAgedFormat);
+    System.out.println("----- Percentual -----");
+
+    System.out.print("menores: ");
+    System.out.print(decimalFormatUS.format(percentMinor));
+    System.out.println("%");
+
+    System.out.print("adultas: ");
+    System.out.print(decimalFormatUS.format(percentAdult));
+    System.out.println("%");
+
+    System.out.print("maiores que 50: ");
+    System.out.print(decimalFormatUS.format(percentAged));
+    System.out.println("%");
+
   }
 
   /**

@@ -10,6 +10,7 @@ public class Report {
   int minor = 0;
   int adult = 0;
   int aged = 0;
+  int total = 0;
 
   ArrayList<Short> ages = new ArrayList<Short>();
 
@@ -22,6 +23,8 @@ public class Report {
   Report(ArrayList<Short> people) {
     this.ages = people;
     quantityByAges();
+    System.out.println(total);
+    System.out.println("NUMERO TOTAL");
   }
 
   /**
@@ -52,7 +55,11 @@ public class Report {
       } else {
         aged = aged + 1;
       }
+      this.total += 1;
     });
+    if (total == 0) {
+      this.total += 1;
+    }
   }
 
   /**
@@ -63,10 +70,9 @@ public class Report {
    */
   public void reportPercentageByAges() {
 
-    int arrayLength = ages.size();
-    double percentMinor = ((double) minor / arrayLength) * 100;
-    double percentAdult = ((double) adult / arrayLength) * 100;
-    double percentAged = ((double) aged / arrayLength) * 100;
+    double percentMinor = ((double) minor / total) * 100;
+    double percentAdult = ((double) adult / total) * 100;
+    double percentAged = ((double) aged / total) * 100;
 
     // DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
     DecimalFormat decimalFormatUS = new DecimalFormat(

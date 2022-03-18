@@ -33,6 +33,7 @@ public class Principal {
    * @version 1.0
    */
   public static void flow() {
+
     System.out.println("Entre com o número correspondente à opção desejada:");
     String entrySystemString =
         "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
@@ -44,25 +45,41 @@ public class Principal {
       inputNumber = inputScanner.nextShort();
     }
 
-    // inputScanner.close();
-    if (inputNumber == loginOption) {
-      // adiciono a primeira pessoa ao relatorio
-      storeUserAge();
+    while (inputNumber != 2) {
+      if (inputNumber == loginOption) {
+        // adiciono a primeira pessoa ao relatorio
+        storeUserAge();
 
-      // eu quero contar mais um? então chamo o metodo nomente
-      flow();
-    } else if (inputNumber != logoutOption) {
-      System.out.println("Entre com uma opção válida!");
-    } else {
-      // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das
-      // pessoas
-      int quantityOfPeople = people.size();
-      if (quantityOfPeople == 0) {
-        flow();
+        System.out.println("Entre com o número correspondente à opção desejada:");
+        entrySystemString =
+            "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
+        System.out.println(entrySystemString);
+    
+        inputNumber = 0;
+    
+        if (inputScanner.hasNextShort()) {
+          inputNumber = inputScanner.nextShort();
+        }
+
+      } else {
+        System.out.println("Entre com uma opção válida!");
+
+        System.out.println("Entre com o número correspondente à opção desejada:");
+        entrySystemString =
+            "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
+        System.out.println(entrySystemString);
+    
+        inputNumber = 0;
+    
+        if (inputScanner.hasNextShort()) {
+          inputNumber = inputScanner.nextShort();
+        }
+
       }
-      relatorio();
     }
-    // inputScanner.close();
+
+    // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das // pessoas
+    relatorio();
   }
 
   /**
@@ -77,9 +94,16 @@ public class Principal {
     if (inputScanner.hasNextShort()) {
       age = inputScanner.nextShort();
     }
-    System.out.println("Pessoa adulta, catraca liberada!");
+
+    if (age < 18) {
+      System.out.println("Pessoa menor, catraca liberada!");
+    } else if (age >= 18 && age < 50) {
+      System.out.println("Pessoa adulta, catraca liberada!");
+    } else {
+      System.out.println("Pessoa idosa, catraca liberada!");
+    }
+
     people.add(age);
-    // inputScanner.close();
   }
 
   /**

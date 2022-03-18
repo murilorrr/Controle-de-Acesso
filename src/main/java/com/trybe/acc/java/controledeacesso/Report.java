@@ -7,10 +7,10 @@ import java.util.Locale;
 
 public class Report {
 
-  int minor = 0;
-  int adult = 0;
-  int aged = 0;
-  int total = 0;
+  short minor = 0;
+  short adult = 0;
+  short aged = 0;
+  short total = 0;
 
   ArrayList<Short> ages = new ArrayList<Short>();
 
@@ -49,14 +49,15 @@ public class Report {
   private void quantityByAges() {
     ages.forEach((age) -> {
       if (age < 18) {
-        minor = minor + 1;
+        minor = (short) (minor + 1);
       } else if (age >= 18 && age < 50) {
-        adult = adult + 1;
+        adult = (short) (adult + 1);
       } else {
-        aged = aged + 1;
+        aged = (short) (aged + 1);
       }
       this.total += 1;
     });
+    // para que nunca se divide nada por 0
     if (total == 0) {
       this.total += 1;
     }
@@ -70,9 +71,9 @@ public class Report {
    */
   public void reportPercentageByAges() {
 
-    double percentMinor = ((double) minor / total) * 100;
-    double percentAdult = ((double) adult / total) * 100;
-    double percentAged = ((double) aged / total) * 100;
+    float percentMinor = ((float) minor / total) * 100;
+    float percentAdult = ((float) adult / total) * 100;
+    float percentAged = ((float) aged / total) * 100;
 
     // DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
     DecimalFormat decimalFormatUS = new DecimalFormat(

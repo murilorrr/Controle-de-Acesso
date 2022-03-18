@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class Principal {
 
   static ArrayList<Short> people = new ArrayList<Short>();
-  short acess;
   static short logoutOption = 2;
-  static int loginOption = 1;
+  static short loginOption = 1;
   static Scanner inputScanner = new Scanner(System.in);
 
   /**
@@ -34,52 +33,32 @@ public class Principal {
    */
   public static void flow() {
 
+    short inputNumber = openMenu();
+
+    while (inputNumber != logoutOption) {
+      if (inputNumber == loginOption) {
+        storeUserAge();
+        inputNumber = openMenu();
+      } else {
+        System.out.println("Entre com uma opção válida!");
+        inputNumber = openMenu();
+      }
+    }
+
+    relatorio();
+  }
+
+  private static short openMenu() {
+    short inputNumber = 0;
     System.out.println("Entre com o número correspondente à opção desejada:");
     String entrySystemString =
         "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
     System.out.println(entrySystemString);
 
-    short inputNumber = 0;
-
     if (inputScanner.hasNextShort()) {
       inputNumber = inputScanner.nextShort();
     }
-
-    while (inputNumber != 2) {
-      if (inputNumber == loginOption) {
-        // adiciono a primeira pessoa ao relatorio
-        storeUserAge();
-
-        System.out.println("Entre com o número correspondente à opção desejada:");
-        entrySystemString =
-            "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
-        System.out.println(entrySystemString);
-    
-        inputNumber = 0;
-    
-        if (inputScanner.hasNextShort()) {
-          inputNumber = inputScanner.nextShort();
-        }
-
-      } else {
-        System.out.println("Entre com uma opção válida!");
-
-        System.out.println("Entre com o número correspondente à opção desejada:");
-        entrySystemString =
-            "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
-        System.out.println(entrySystemString);
-    
-        inputNumber = 0;
-    
-        if (inputScanner.hasNextShort()) {
-          inputNumber = inputScanner.nextShort();
-        }
-
-      }
-    }
-
-    // quando acabar eu quero que a entidade de relatorio me ofereça o relatorio das // pessoas
-    relatorio();
+    return inputNumber;
   }
 
   /**
@@ -88,13 +67,14 @@ public class Principal {
    * @version 1.0
    */
   public static void storeUserAge() {
-    System.out.println("Entre com a sua idade:");
-    short age = 0;
+    short age = ageEntry();
 
-    if (inputScanner.hasNextShort()) {
-      age = inputScanner.nextShort();
-    }
+    agePrintOut(age);
 
+    people.add(age);
+  }
+
+  private static void agePrintOut(short age) {
     if (age < 18) {
       System.out.println("Pessoa menor, catraca liberada!");
     } else if (age >= 18 && age < 50) {
@@ -102,8 +82,16 @@ public class Principal {
     } else {
       System.out.println("Pessoa idosa, catraca liberada!");
     }
+  }
 
-    people.add(age);
+  public static short ageEntry() {
+    System.out.println("Entre com a sua idade:");
+    short age = 0;
+
+    if (inputScanner.hasNextShort()) {
+      age = inputScanner.nextShort();
+    }
+    return age;
   }
 
   /**

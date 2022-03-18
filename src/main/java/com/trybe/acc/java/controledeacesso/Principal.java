@@ -84,6 +84,11 @@ public class Principal {
     }
   }
 
+  /**
+   * método ageEntry vai esperar a idade e retornar o valor inputado.
+   * @author Murilo
+   * @version 1.0
+   */
   public static short ageEntry() {
     System.out.println("Entre com a sua idade:");
     short age = 0;

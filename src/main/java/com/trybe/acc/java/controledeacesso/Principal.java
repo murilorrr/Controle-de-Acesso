@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
-
-  static ArrayList<Short> people = new ArrayList<Short>();
-  static short logoutOption = 2;
-  static short loginOption = 1;
-  static Scanner inputScanner = new Scanner(System.in);
-
   /**
    * warn
    * método main vai chamar a execução da aplicação do sistema.
@@ -33,45 +27,51 @@ public class Principal {
    */
   public static void flow() {
 
-    short inputNumber = openMenu();
+    Scanner scanner = new Scanner(System.in);
+    short logoutOption = 2;
+    short loginOption = 1;
+    ArrayList<Short> people = new ArrayList<Short>();
+
+    short inputNumber = openMenuWithScanner(scanner);
 
     while (inputNumber != logoutOption) {
       if (inputNumber == loginOption) {
-        storeUserAge();
-        inputNumber = openMenu();
+        storeUserAgeInArrayWithScanner(people, scanner);
+        inputNumber = openMenuWithScanner(scanner);
       } else {
         System.out.println("Entre com uma opção válida!");
-        inputNumber = openMenu();
+        inputNumber = openMenuWithScanner(scanner);
       }
     }
 
-    relatorio();
+    relatorio(people);
   }
 
-  private static short openMenu() {
+  private static short openMenuWithScanner(Scanner scanner) {
     short inputNumber = 0;
     System.out.println("Entre com o número correspondente à opção desejada:");
     String entrySystemString =
         "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
     System.out.println(entrySystemString);
 
-    if (inputScanner.hasNextShort()) {
-      inputNumber = inputScanner.nextShort();
+    if (scanner.hasNextShort()) {
+      inputNumber = scanner.nextShort();
     }
     return inputNumber;
   }
 
   /**
    * método storeUserAge vai esperar a idade e guardar no arrayList de people.
+   * @param array arrayList de entrada
    * @author Murilo
    * @version 1.0
    */
-  public static void storeUserAge() {
-    short age = ageEntry();
+  public static void storeUserAgeInArrayWithScanner(ArrayList<Short> array, Scanner scanner) {
+    short age = ageEntryIntoScanner(scanner);
 
     agePrintOut(age);
 
-    people.add(age);
+    array.add(age);
   }
 
   private static void agePrintOut(short age) {
@@ -88,13 +88,14 @@ public class Principal {
    * método ageEntry vai esperar a idade e retornar o valor inputado.
    * @author Murilo
    * @version 1.0
+   * @param scanner é um scanner que deve receber um input de idade no terminal
    */
-  public static short ageEntry() {
+  public static short ageEntryIntoScanner(Scanner scanner) {
     System.out.println("Entre com a sua idade:");
     short age = 0;
 
-    if (inputScanner.hasNextShort()) {
-      age = inputScanner.nextShort();
+    if (scanner.hasNextShort()) {
+      age = scanner.nextShort();
     }
     return age;
   }
@@ -102,11 +103,12 @@ public class Principal {
   /**
    * método relatorio instancia uma classe de Report que contem
    * metodos para analizar um array de idades.
+   * @param array arrayList de entrada
    * @author Murilo
    * @version 1.0
    */
-  public static void relatorio() {
-    Report report = new Report(people);
+  public static void relatorio(ArrayList<Short> array) {
+    Report report = new Report(array);
     report.reportQuantityByAges();
     report.reportPercentageByAges();
     report.numberOfPeople();

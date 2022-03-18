@@ -9,6 +9,7 @@ public class Principal {
   short acess;
   static short logoutOption = 2;
   static int loginOption = 1;
+  static Scanner inputScanner = new Scanner(System.in);
 
   /**
    * warn
@@ -36,7 +37,6 @@ public class Principal {
     String entrySystemString =
         "1 - Acessar o estabelecimento\n2 - Finalizar sistema e mostrar relatório";
     System.out.println(entrySystemString);
-    Scanner inputScanner = new Scanner(System.in);
 
     short inputNumber = 0;
 
@@ -72,7 +72,6 @@ public class Principal {
    */
   public static void storeUserAge() {
     System.out.println("Entre com a sua idade:");
-    Scanner inputScanner = new Scanner(System.in);
     short age = 0;
 
     if (inputScanner.hasNextShort()) {

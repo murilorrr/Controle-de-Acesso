@@ -1,3 +1,4 @@
 {
-  "java.checkstyle.configuration": "/home/murilorsv21/java/javaTrybeProjects/eclipse-java-google-style.xml"
+  "java.checkstyle.configuration": "/google_checks.xml",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

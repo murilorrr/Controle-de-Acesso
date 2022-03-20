@@ -23,8 +23,6 @@ public class Report {
   Report(ArrayList<Short> people) {
     this.ages = people;
     quantityByAges();
-    System.out.println(total);
-    System.out.println("NUMERO TOTAL");
   }
 
   /**
